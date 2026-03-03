@@ -10,16 +10,14 @@
 ## 🚀 Overview
 **ExportShield** is a hardware-locked, fully offline desktop application engineered specifically for Pakistani exporters dealing with Saudi Arabia (KSA). It completely automates the **ZATCA Phase 1 (Generation Phase)** compliance process, generating cryptographic TLV QR codes and bilingual (Arabic/English) PDF invoices strictly within a local environment.
 
-🔗 **[Watch the 2-Minute Architecture & Demo Video Here] (Insert your Loom/YouTube link)**
-
 ## 💡 The Problem vs. The Solution
 Most ZATCA e-invoicing solutions are cloud-based SaaS platforms. However, many local manufacturers and exporters require **100% offline, highly secure, and localized** data processing to prevent data leaks and eliminate cloud-dependency. 
 
-**ExportShield** solves this by packaging a complete web-app architecture (Frontend, Backend, Database, and Cryptography Engine) into a single, standalone `.exe` file that works without any internet connection.
+**ExportShield** solves this by packaging a complete web-app architecture (Frontend, Backend, Database, and Cryptography Engine) into a single, standalone `.exe` file that works entirely without an internet connection.
 
 ## 🛠️ Technical Architecture (Under the Hood)
 I designed ExportShield to be lightweight yet incredibly robust:
-* **Frontend UI:** Built with **Streamlit**, providing a modern, reactive, browser-based feel inside a desktop environment.
+* **Frontend UI:** Built with **Streamlit**, providing a modern, reactive, browser-based feel inside a native desktop environment.
 * **Backend Engine:** **Python**, handling complex business logic, input sanitization, and tax calculations.
 * **Cryptography:** Custom Python scripts implementing **Base64 & TLV (Tag-Length-Value)** encoding exactly according to ZATCA cryptographic specifications.
 * **Database:** **SQLite3** acts as the local persistent storage, managing complex relational mapping between Inventory, Customers, and Invoices.
@@ -32,12 +30,32 @@ I designed ExportShield to be lightweight yet incredibly robust:
 3. **Dynamic PDF Generation:** Instant export of A4-sized invoices in Arabic and English, meeting local KSA auditory standards.
 4. **Relational Data Management:** Built-in mini-CRM and Inventory manager to auto-fill invoice details efficiently.
 
-## 📸 Product Interface (Screenshots)
-*(Add 2 to 3 clean screenshots of your Streamlit UI and the final PDF invoice here)*
+## 📸 Product Interface & Workflow
+*A step-by-step look at the offline ExportShield ecosystem:*
 
-![Dashboard View](link_to_dashboard_image)
-![Invoice Generation](link_to_invoice_image)
-![Final PDF Output](link_to_pdf_image)
+**1. Main Dashboard & Analytics**
+![Dashboard View](image_1_link_here)
+
+**2. Client & Inventory Management (Mini-CRM)**
+![CRM View](image_2_link_here)
+
+**3. Invoice Generation Engine**
+![Invoice Entry](image_3_link_here)
+
+**4. Cryptographic TLV QR Processing**
+![QR Generation](image_4_link_here)
+
+**5. Final Bilingual ZATCA PDF Output**
+![PDF Output](image_5_link_here)
+
+---
+
+## 🎥 Architecture & Demo Video
+Want to see the offline engine in action? Watch the complete walkthrough of the database operations and invoice generation.
+
+🔗 **[▶️ Watch the 2-Minute Demo Video Here](#)** *(Video coming soon / Update link here later)*
+
+---
 
 ## 🗺️ Future Roadmap (Phase 2)
 While Phase 1 (Generation) is fully operational, the architecture is designed to easily accommodate **Phase 2 (Integration Phase)** in the near future. This will involve:
@@ -46,4 +64,4 @@ While Phase 1 (Generation) is fully operational, the architecture is designed to
 * JSON/XML (UBL 2.1) payload construction.
 
 ---
-**👨‍💻 Built by [Muhammad Ahsaan Ullah](https://linkedin.com/in/mahsaanullah)** *AI Automation & Backend Engineer | Building systems that solve real business problems.*
+**👨💻 Built by [Muhammad Ahsaan Ullah](https://linkedin.com/in/mahsaanullah)** *AI Automation & Backend Engineer | Building systems that solve real business problems.*
