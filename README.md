@@ -100,6 +100,19 @@ Tag 5: VAT Amount
 
 ---
 
+## 📸 Screenshots
+
+### 🖥️ Dashboard
+![Dashboard](Screenshots/dashboard.png)
+
+### 📊 Analytical Intelligence
+![Analytical Intelligence](Screenshots/analytical%20intelligence.png)
+
+### 🏢 Company Settings
+![Company Settings](Screenshots/company-setting.png)
+
+---
+
 ## ✨ Core Features
 
 ### 1. 📊 End-to-End Invoice Pipeline
