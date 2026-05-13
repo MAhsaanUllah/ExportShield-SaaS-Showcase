@@ -4,13 +4,23 @@
 ![Platform](https://img.shields.io/badge/Platform-Windows_Desktop-0078D6?logo=windows)
 ![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python)
 ![ZATCA](https://img.shields.io/badge/Compliance-ZATCA_Phase_1_Ready-00C853)
-![License](https://img.shields.io/badge/License-Commercial_Node--Locked-red)
+![Demo](https://img.shields.io/badge/Live-Demo_Online-ff4b4b?logo=streamlit)
+![Video](https://img.shields.io/badge/Video-Walkthrough-red?logo=youtube)
 
 > **ExportShield Pro** is a fully offline, AI-powered desktop application that automates ZATCA Phase 1 e-invoicing compliance for Pakistani exporters dealing with Saudi Arabia. Upload an Excel file → AI validates & translates → get bilingual Arabic/English PDFs with cryptographic TLV QR codes — entirely offline, no cloud dependency.
 
 > **⚠️ NOTE:** This repository is a **Technical Showcase** for portfolio purposes. Source code is maintained in a private repository as this is a shipped commercial product (Gold Master v1.0.4).
 
 ---
+
+## 🚀 Experience ExportShield
+
+| 🌐 Live Demo | 🎬 Video Tour |
+| :--- | :--- |
+| [![Try it Now](https://img.shields.io/badge/🚀_Launch_Live_Demo-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://exportshield-cloud-trial.streamlit.app/) | [![Watch Video](https://img.shields.io/badge/📺_Watch_Video_Walkthrough-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/GeNvawJ0tBY) |
+
+---
+
 
 ## 🎯 The Problem
 
@@ -97,6 +107,16 @@ Tag 5: VAT Amount
 │   Bilingual A4 PDFs + TLV QR Codes → ZIP Download       │
 └─────────────────────────────────────────────────────────┘
 ```
+
+---
+
+---
+
+## 🎬 Video Walkthrough
+
+Watch ExportShield Pro in action — from raw Excel upload to ZATCA-compliant PDF generation in under 60 seconds.
+
+[![ExportShield Pro Demo](https://img.youtube.com/vi/GeNvawJ0tBY/maxresdefault.jpg)](https://youtu.be/GeNvawJ0tBY)
 
 ---
 
@@ -198,14 +218,12 @@ No Python installation required. No internet connection required. Double-click a
 - [x] Analytics dashboard with heatmap
 - [x] PyInstaller .exe packaging (Gold Master v1.0.4)
 - [x] Bilingual setup guide (EN + Roman Urdu)
+- [x] Streamlit Cloud demo mode (no license gate)
 
 **Phase 2 — Planned 🔜**
-- [ ] AI Invoice Image Extraction (Gemini Vision OCR)
-- [ ] Bulk Arabic Translation via Gemini API
 - [ ] REST API integration with FATOORA portal
 - [ ] Cryptographic Stamp (CSID) generation
 - [ ] JSON/XML (UBL 2.1) payload construction
-- [ ] Streamlit Cloud demo mode (no license gate)
 - [ ] Multi-user auth layer activation
 
 ---
