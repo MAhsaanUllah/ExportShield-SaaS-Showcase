@@ -239,7 +239,7 @@ No Python installation required. No internet connection required. Double-click a
 
 ---
 
-## 👨‍💻 Built By
+## 👨💻 Built By
 
 **Muhammad Ahsaan Ullah**  
 AI Automation & Full-Stack Engineer | Building production systems for Pakistani businesses
