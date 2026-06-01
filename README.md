@@ -1,256 +1,100 @@
-# 🛡️ ExportShield Pro — AI-Powered ZATCA Phase 1 Compliance Engine
+# 🛡️ ExportShield Pro — Complete ZATCA Compliance Suite (Cloud SaaS & Offline Node)
 
-![Status](https://img.shields.io/badge/Status-Gold_Master_v1.0.4-brightgreen)
-![Platform](https://img.shields.io/badge/Platform-Windows_Desktop-0078D6?logo=windows)
-![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python)
+![Next.js](https://img.shields.io/badge/Next.js_14-000000?style=flat&logo=nextdotjs&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white)
+![Python](https://img.shields.io/badge/Python_3.11-3776AB?style=flat&logo=python&logoColor=white)
 ![ZATCA](https://img.shields.io/badge/Compliance-ZATCA_Phase_1_Ready-00C853)
-![Demo](https://img.shields.io/badge/Live-Demo_Online-ff4b4b?logo=streamlit)
-![Video](https://img.shields.io/badge/Video-Walkthrough-red?logo=youtube)
 
-> **ExportShield Pro** is a fully offline, AI-powered desktop application that automates ZATCA Phase 1 e-invoicing compliance for Pakistani exporters dealing with Saudi Arabia. Upload an Excel file → AI validates & translates → get bilingual Arabic/English PDFs with cryptographic TLV QR codes — entirely offline, no cloud dependency.
+> **ExportShield Pro** is an enterprise-grade e-Invoicing suite designed specifically for exporters in Saudi Arabia and Pakistan. It bridges the gap between messy trade operations and rigid Middle Eastern customs regulations by offering two distinct architectures: a highly scalable **Cloud SaaS Platform** and a secure, air-gapped **Offline Desktop Application**.
 
-> **⚠️ NOTE:** This repository is a **Technical Showcase** for portfolio purposes. Source code is maintained in a private repository as this is a shipped commercial product (Gold Master v1.0.4).
+> **⚠️ NOTE:** This repository is a **Technical Showcase** for portfolio purposes. Source code is maintained in a private repository as this is a shipped commercial product.
 
 ---
 
-## 🚀 Experience ExportShield
+## ☁️ Cloud SaaS Platform Architecture
 
-| 🌐 Live Demo | 🎬 Video Tour |
-| :--- | :--- |
-| [![Try it Now](https://img.shields.io/badge/🚀_Launch_Live_Demo-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://exportshield-cloud-trial.streamlit.app/) | [![Watch Video](https://img.shields.io/badge/📺_Watch_Video_Walkthrough-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/GeNvawJ0tBY) |
+Built on a modern stack using a **FastAPI (Python 3.11)** backend and an interactive **Next.js 14** (App Router + Tailwind CSS + shadcn/ui) frontend. Data and authentication are powered by **Supabase Cloud**.
 
----
+### 1. 📂 Core Product Features (User Journey)
 
+#### A. Step-by-Step Intelligent Bulk Upload Wizard (SmartMap)
+- **Problem:** Exporters have varying sales sheets (e.g., column names like 'invoice_no' vs. 'bill#').
+- **Solution:** Our proprietary Intelligent SmartMap Algorithm. Users upload generic Excel/CSV files. The system uses AI-heuristics to auto-detect and map columns (Invoice Number, Date, Price, Quantity, VAT rate), implementing custom safeguards to prevent Tax IDs from being mismatched with tax percentages.
 
-## 🎯 The Problem
+#### B. Interactive Live-Audit Data Grid
+- **Real-time Corrections:** Red-alert error badges instantly block rows with invalid data (e.g., negative quantities, incorrect date formats, missing buyer names).
+- **Reactive Background Sync:** Users can double-click any cell to make corrections. Pressing Enter triggers a dynamic `/audit` API call to update status badges and platform health scores (e.g., 88% to 100%) in real-time.
+- **Auto-Fix Heuristics:** Standardizes date patterns, fills missing seller VATs, and corrects invalid VAT rates with a single click.
+- **AI Fix (Gemini Integration):** Deep errors are corrected via Google's Gemini-Flash-1.5 model (integrated via OpenRouter) with just one click.
 
-Saudi Arabia's ZATCA mandate requires all VAT-registered businesses to generate cryptographically compliant e-invoices with:
-- Bilingual Arabic/English content
-- TLV-encoded QR codes with 5 mandatory ZATCA tags
-- Strict VAT calculation and formatting rules
+#### C. Compliant Invoicing Engine
+- **ZATCA Compliant XML:** Auto-generates UBL 2.1 standard XML components.
+- **Bilingual Arabic/English PDF:** Generates professional dynamic layouts with right-to-left (RTL) Arabic support, company branding, and bank details.
+- **ZATCA QR Code TLV Encoder:** Converts 5 mandatory tags into the required binary Tag-Length-Value (TLV) format and renders a valid cryptographic QR image.
+- **NTN / VAT Flexibility:** Seamlessly handles 15-digit Saudi VAT formats as well as 7-15 character alphanumeric Pakistani NTNs.
 
-**Enterprise ERPs (SAP, Oracle) cost thousands of dollars.** Pakistani SME exporters had no affordable, offline solution — until ExportShield.
+### 2. 🔒 Enterprise-Grade Security & Controls
+- **Dual-Layer Encryption:** Client-side AES encryption secures pricing information before it hits the database.
+- **Tenant Isolation:** Complete data separation using Supabase Row Level Security (RLS) policies.
+- **Rate Limiting:** JWT-based tracking limits requests to 60/minute per tenant.
+- **Usage Soft-Reset:** Database triggers (`pg_cron`) paired with backend safety syncs ensure accurate monthly subscription limits.
+- **Multi-Bucket Layout:** Isolated Supabase storage buckets for invoice assets, logos, and payment proofs.
 
----
+### 3. 👑 Platform Control Center
+A dedicated Dark-Themed Admin Portal `/control-center` allows direct user credential management via Supabase Admin API and a Subscription Desk to review manual bank transfer proofs and approve plans.
 
-## ✨ What Makes It Different
-
-| Feature | ExportShield Pro | Cloud SaaS Alternatives |
-|---|---|---|
-| Internet required | ❌ 100% Offline | ✅ Always online |
-| Data privacy | ✅ Never leaves machine | ❌ Uploaded to cloud |
-| AI extraction | ❌ Phase 2 | ❌ Manual entry |
-| Arabic translation | ✅ Dictionary-based (offline) | ❌ Manual or paid API |
-| Packaging | ✅ Single .exe, no install | ❌ Complex setup |
-| Price | ✅ One-time node-locked | ❌ Monthly subscription |
-| ZATCA TLV QR | ✅ Cryptographically correct | ✅ Varies |
-
----
-
-
-
-## 🔐 ZATCA TLV QR Engine
-
-Custom cryptographic implementation — **not a library wrapper:**
-
-```python
-# 5 Mandatory ZATCA Tags encoded in TLV binary format
-Tag 1: Seller Name (bilingual)
-Tag 2: VAT Registration Number (15 digits)
-Tag 3: Invoice Timestamp (ISO 8601)
-Tag 4: Invoice Total (including VAT)
-Tag 5: VAT Amount
-
-→ Binary TLV → Base64 encode → QR Code PNG
-→ Embedded in bilingual A4 PDF via ReportLab
-```
-
-**AI Compliance Audit** validates every row before generation:
-- Missing VAT number → flagged
-- Date format errors → flagged  
-- Math mismatch (line items vs total) → flagged
-- Generation gated at **100% data health**
+### 🚀 Pitch to Future (Phase 2 Roadmap)
+- **ZATCA Phase 2 ECDSA Integration:** Cryptographic signatures and secure certificates.
+- **Automated Payments Gateway:** Stripe, JazzCash, and Easypaisa integration.
+- **Notification Engine:** Automated email workflows via Resend/SendGrid.
 
 ---
 
-## 🏗️ System Architecture
+## 🖥️ Offline Windows Desktop Application (Gold Master)
 
-```
-┌─────────────────────────────────────────────────────────┐
-│              USER (Windows Desktop)                      │
-│         Uploads Excel / CSV / Invoice Image              │
-└──────────────────────┬──────────────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────────────┐
-│           ExportShield Pro (.exe — 329 MB)               │
-│                                                          │
-│  ┌─────────────┐  ┌──────────────┐  ┌───────────────┐  │
-│  │  Streamlit  │  │  Data        │  │  AI Module    │  │
-│  │  UI Engine  │  │  Validator   │  │  Gemini Vision│  │
-│  │             │  │  + Cleaner   │  │  + Translator │  │
-│  └─────────────┘  └──────────────┘  └───────────────┘  │
-│                                                          │
-│  ┌─────────────┐  ┌──────────────┐  ┌───────────────┐  │
-│  │  ZATCA TLV  │  │  ReportLab   │  │  Node-Lock    │  │
-│  │  QR Engine  │  │  PDF Engine  │  │  License      │  │
-│  │  (custom)   │  │  (bilingual) │  │  (SHA-256)    │  │
-│  └─────────────┘  └──────────────┘  └───────────────┘  │
-│                                                          │
-│  ┌──────────────────────────────────────────────────┐   │
-│  │         SQLite (Embedded — fully offline)         │   │
-│  │  Users · Invoices · Product Dictionary · History  │   │
-│  └──────────────────────────────────────────────────┘   │
-└──────────────────────┬──────────────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────────────┐
-│              OUTPUT (Local Machine)                      │
-│   Bilingual A4 PDFs + TLV QR Codes → ZIP Download       │
-└─────────────────────────────────────────────────────────┘
-```
+A high-performance, air-gapped compliance suite packaged as a single executable for completely offline operation.
 
----
+### 💎 Core ExportShield Offline Features
 
----
-
-## 🎬 Video Walkthrough
-
-Watch ExportShield Pro in action — from raw Excel upload to ZATCA-compliant PDF generation in under 60 seconds.
-
-[![ExportShield Pro Demo](https://img.youtube.com/vi/GeNvawJ0tBY/maxresdefault.jpg)](https://youtu.be/GeNvawJ0tBY)
+1. **Node-Locked License Security:** 
+   Prevents software piracy by generating a hardware fingerprint using the motherboard's Windows UUID (hashed with a secure salt). Software is locked to specific corporate machines.
+2. **Compliant ZATCA Base64 TLV QR Code Generator:** 
+   Packs Seller Name, Saudi VAT ID, Timestamp, Total Amount, and VAT Amount into a binary TLV byte-stream. Scans "Green" (Verified) on the official ZATCA app.
+3. **SQLite-Powered Product Dictionary with Auto-Translate:** 
+   Maintains an active embedded database mapping English trade items to Arabic. Automatically translates unmatched terms via Google Translate API and caches them offline.
+4. **Smart Validation Grid with Inline Editing:** 
+   Runs real-time diagnostic checks on all rows. Users fix errors directly inside the browser-like table without returning to Excel.
+5. **Analytical Intelligence Dashboard:** 
+   Visualizes history logs, aggregate KPIs, daily volume trends, and hour-of-day heatmaps from local batch executions.
 
 ---
 
 ## 📸 Screenshots
 
-### 🖥️ Dashboard
+### Cloud SaaS Platform
+*(Upload and add your new Cloud screenshots here: Dashboard, SmartMap Data Intake, and Generate Invoice UI)*
+
+### Offline Application
+#### 🖥️ Dashboard
 ![Dashboard](Screenshots/dashboard.png)
 
-### 📊 Analytical Intelligence
+#### 📊 Analytical Intelligence
 ![Analytical Intelligence](Screenshots/analytical%20intelligence.png)
 
-### 🏢 Company Settings
+#### 🏢 Company Settings
 ![Company Settings](Screenshots/company-setting.png)
 
 ---
 
-## ✨ Core Features
-
-### 1. 📊 End-to-End Invoice Pipeline
-- Upload Excel/CSV → auto-detect columns (Invoice No, Date, Customer, VAT ID, Items, Qty, Price)
-- AI compliance audit with row-level validation
-- Batch generate bilingual PDFs → packaged into ZIP
-
-### 2. 🔐 Cryptographic TLV QR Codes
-- Custom ZATCA-spec TLV binary encoder
-- 5 mandatory tags: Seller, VAT No, Timestamp, Total, VAT Amount
-- Base64 encoded → QR PNG → embedded in PDF
-
-### 3. 🌐 Arabic Translation Engine
-- Built-in SQLite product dictionary (19 pre-seeded Pakistan-KSA trade goods)
-- `arabic_reshaper` + `python-bidi` for correct RTL Arabic ligature rendering
-- CSV/JSON/Excel/TXT bulk dictionary import supported
-- UPSERT on save — factory defaults never deleted
-
-### 5. 📄 Bilingual PDF Generation
-- A4 format, Arabic (RTL) + English side-by-side
-- Multi-page table support for long invoices
-- `arabic_reshaper` + `python-bidi` for correct Arabic ligatures
-- Company logo, IBAN, bank details auto-filled from settings
-
-### 6. 🔒 Node-Locked Licensing
-- Hardware fingerprint via Windows UUID (WMIC + MAC fallback)
-- SHA-256 license hash with proprietary salt
-- Admin keygen tool (not shipped to users)
-- Subscription tier tracking with monthly usage counters
-
-### 7. 📈 Analytics Dashboard
-- KPIs: batch cycles, invoice count, gross SAR value
-- Daily activity charts (Altair)
-- Hour × Day heatmap from usage history
-
-### 8. 🏢 Company Settings
-- Configurable company profile (EN + Arabic name, VAT number, address, IBAN)
-- Logo upload for PDF branding
-- Factory reset with user data preservation option
-
----
-
-## 🛠️ Full Tech Stack
-
-| Component | Technology |
-|---|---|
-| UI Framework | Streamlit |
-| PDF Engine | ReportLab (A4 bilingual) |
-| Arabic Rendering | `arabic_reshaper` + `python-bidi` |
-| QR Code | `qrcode` (custom TLV encoder) |
-| Database | SQLite3 (embedded, offline) |
-| Data Processing | Pandas, openpyxl, xlrd |
-| Security | bcrypt, SHA-256 node-lock |
-| Charts | Altair |
-| Packaging | PyInstaller (single .exe, 329 MB) |
-| Language | Python 3.9+ |
-| OS Target | Windows 10/11 |
-
----
-
-## 📦 Delivery Package (v1.0.4)
-
-```
-ExportShield_v1.0.4_Delivery/
-├── ExportShield_Pro.exe        # 329 MB standalone Windows executable
-├── SETUP_GUIDE.txt             # Bilingual EN + Roman Urdu installation guide
-└── assets/                     # App assets
-```
-
-No Python installation required. No internet connection required. Double-click and run.
-
----
-
-## 🗺️ Roadmap
-
-**Phase 1 — Complete ✅**
-- [x] ZATCA TLV QR code generation (5 mandatory tags)
-- [x] Bilingual A4 PDF invoice generation
-- [x] AI invoice image extraction (Gemini Vision)
-- [x] Bulk Arabic translation with retry logic
-- [x] AI compliance audit (row-level validation)
-- [x] Node-locked licensing system
-- [x] Analytics dashboard with heatmap
-- [x] PyInstaller .exe packaging (Gold Master v1.0.4)
-- [x] Bilingual setup guide (EN + Roman Urdu)
-- [x] Streamlit Cloud demo mode (no license gate)
-
-**Phase 2 — Planned 🔜**
-- [ ] REST API integration with FATOORA portal
-- [ ] Cryptographic Stamp (CSID) generation
-- [ ] JSON/XML (UBL 2.1) payload construction
-- [ ] Multi-user auth layer activation
-
----
-
-## 🔒 Security & Privacy
-
-> **Note:** This is a closed-source commercial product. Source code is maintained in a private repository.
-
-- All data processing happens **100% locally** — no data ever leaves the machine
-- Node-locked license tied to hardware UUID — non-transferable
-- bcrypt password hashing for user auth module
-- SQLite database stored in `~/ExportShield_Data/` — user-controlled
-
----
-
-## 👨💻 Built By
+## 👨‍💻 Architected By
 
 **Muhammad Ahsaan Ullah**  
-AI Automation & Full-Stack Engineer | Building production systems for Pakistani businesses
+AI Automation & Full-Stack Engineer
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-mahsaanullah-0A66C2?logo=linkedin)](https://linkedin.com/in/mahsaanullah)
 [![GitHub](https://img.shields.io/badge/GitHub-MAhsaanUllah-181717?logo=github)](https://github.com/MAhsaanUllah)
 
----
-
 <div align="center">
-
-**ExportShield Pro — Making ZATCA compliance accessible for every Pakistani exporter. 🇵🇰**
-
+<b>ExportShield Pro — Making ZATCA compliance accessible and secure.</b>
 </div>
