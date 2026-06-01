@@ -73,7 +73,17 @@ A high-performance, air-gapped compliance suite packaged as a single executable 
 ## 📸 Screenshots
 
 ### Cloud SaaS Platform
-*(Upload and add your new Cloud screenshots here: Dashboard, SmartMap Data Intake, and Generate Invoice UI)*
+#### 🚀 Landing Page
+![Landing Page](Screenshots/landing.png)
+
+#### 📊 Cloud Dashboard
+![Cloud Dashboard](Screenshots/cloud_dashboard.png)
+
+#### 📂 Intelligent Batch Processing
+![Batch Processing](Screenshots/batch_processing.png)
+
+#### ⚡ Generate Invoice Interface
+![Generate Invoice](Screenshots/generate_invoice.png)
 
 ### Offline Application
 #### 🖥️ Dashboard
