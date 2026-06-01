@@ -74,16 +74,16 @@ A high-performance, air-gapped compliance suite packaged as a single executable 
 
 ### Cloud SaaS Platform
 #### 🚀 Landing Page
-![Landing Page](Screenshots/landing.png)
+![Landing Page](Screenshots/Landing_page.png)
 
 #### 📊 Cloud Dashboard
 ![Cloud Dashboard](Screenshots/cloud_dashboard.png)
 
 #### 📂 Intelligent Batch Processing
-![Batch Processing](Screenshots/batch_processing.png)
+![Batch Processing](Screenshots/Intelligent_batch_processing.png)
 
 #### ⚡ Generate Invoice Interface
-![Generate Invoice](Screenshots/generate_invoice.png)
+![Generate Invoice](Screenshots/generate_invoice_cloud.png)
 
 ### Offline Application
 #### 🖥️ Dashboard

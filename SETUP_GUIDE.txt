@@ -1,0 +1,87 @@
+═══════════════════════════════════════════════════════════════════
+   ExportShield Pro v1.0.4 — Setup Guide | راہنمائی
+═══════════════════════════════════════════════════════════════════
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ENGLISH SETUP GUIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1 — EXTRACT
+  Extract the ZIP file to any folder on your computer.
+  (Recommended: Desktop or C:\Programs\ExportShield)
+
+STEP 2 — RUN
+  Double-click 'ExportShield_Pro.exe'.
+  Windows may show a SmartScreen warning — click "More info"
+  then "Run anyway". This is expected for unsigned software.
+
+STEP 3 — GET YOUR ACTIVATION KEY
+  The software will show your unique "System ID" on screen.
+  Copy it and WhatsApp it to:
+
+      Ahsaan Ullah — ExportShield Support
+      WhatsApp: [Your Number Here]
+
+STEP 4 — ACTIVATE
+  Paste the Activation Key you receive into the input field.
+  Click "Activate Software".
+  The software will unlock immediately and remember your
+  activation — you will NOT need to re-enter it again.
+
+STEP 5 — START INVOICING
+  Go to Company Settings > Enter your VAT Number and Company Name.
+  Upload your Excel file on the Dashboard.
+  Generate ZATCA-compliant PDF invoices in one click.
+
+  NOTE: All data stays 100% on your computer. Nothing is
+  sent to the internet. Your invoices are yours only.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ROMAN URDU SETUP GUIDE (آسان راہنمائی)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+QADAM 1 — EXTRACT KAREIN
+  ZIP file ko apne computer ke kisi bhi folder mein extract
+  karein. (Behtar hai: Desktop ya C:\Programs\ExportShield)
+
+QADAM 2 — CHALAYEIN
+  'ExportShield_Pro.exe' par double-click karein.
+  Agar Windows SmartScreen warning aaye, to "More info"
+  press karein, phir "Run anyway" click karein.
+
+QADAM 3 — ACTIVATION KEY HASIL KAREIN
+  Software screen par apka unique "System ID" dikhayega.
+  Uss ID ko copy karein aur WhatsApp karein:
+
+      Ahsaan Ullah — ExportShield Support
+      WhatsApp: [Your Number Here]
+
+QADAM 4 — ACTIVATE KAREIN
+  Jo Activation Key milegi, usse software ke box mein paste
+  karein. "Activate Software" button dabayein.
+  Software fauran unlock ho jayega aur activation yaad
+  rakhega — dobara enter karne ki zaroorat nahi.
+
+QADAM 5 — INVOICING SHURU KAREIN
+  Company Settings mein jaayein > VAT Number aur Company
+  Name enter karein. Dashboard par apni Excel file upload
+  karein. Ek click mein ZATCA-compliant PDF invoices generate
+  ho jayenge.
+
+  NOTE: Aapka sara data 100% aapke computer par rehta hai.
+  Internet par kuch nahi bheja jaata. Aapki invoices sirf
+  aapki hain.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  TECHNICAL SUPPORT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  If the software crashes, check the error log at:
+  C:\Users\[YourName]\ExportShield_Data\ExportShield_Debug.log
+
+  Share this file with support for faster resolution.
+
+═══════════════════════════════════════════════════════════════════
+  ExportShield Pro v1.0.4 | Enterprise Edition | 5 March 2026
+  Crafted for ZATCA Phase 1 Compliance | 100% Offline
+═══════════════════════════════════════════════════════════════════
