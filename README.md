@@ -1,4 +1,4 @@
-# 🛡️ ExportShield Pro — ZATCA E-Invoicing Suite for Saudi & Pakistani Exporters
+# 🛡️ ExportShield Pro — ZATCA E-Invoicing Compliance Middleware (Phase 1 ✓ offline, Phase 2 sandbox)
 
 ![Next.js](https://img.shields.io/badge/Next.js_14-000000?style=flat&logo=nextdotjs&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
@@ -6,7 +6,7 @@
 ![Python](https://img.shields.io/badge/Python_3.11-3776AB?style=flat&logo=python&logoColor=white)
 ![ZATCA](https://img.shields.io/badge/Compliance-ZATCA_Phase_1_Ready-00C853)
 
-> **ExportShield Pro** is an e-invoicing suite for exporters selling into Saudi Arabia. It generates ZATCA-compliant (Phase 1) invoices in two ways: a **Cloud SaaS** (Next.js + FastAPI + Supabase) and an **Offline Desktop app** (Streamlit, air-gapped).
+> **ExportShield Pro** is a ZATCA e-invoicing compliance middleware — Phase 1 validated offline, Phase 2 sandbox-tested. It generates ZATCA-compliant invoices in two ways: a **Cloud SaaS** (Next.js + FastAPI + Supabase) and an **Offline Desktop app** (Streamlit, air-gapped).
 
 **At a glance** — 2 products in 1 codebase · 33 backend API endpoints · 20+ frontend pages · 3 subscription tiers with plan enforcement · 9/9 QA tests passing · 123-entry bilingual trade dictionary · ZATCA Phase 1 + Phase 2 groundwork.
 
@@ -16,7 +16,7 @@
 
 - **Live app:** [exportshieldpro.online](https://exportshieldpro.online)
 - **Demo screenshots:** available below — see the Screenshots section.
-- This is a **technical showcase** of a shipped commercial product; source is maintained privately.
+- This is a **technical showcase** of a commercial product in pilot/sandbox stage; source is maintained privately.
 
 ---
 
@@ -90,7 +90,7 @@ launch.bat → Streamlit engine (main.py) → Local SQLite/JSON database + PDF/X
 
 ## Key Features
 
-- **ZATCA-compliant invoice engine** — UBL 2.1 XML generation, bilingual (Arabic/English) PDF rendering with company logo + bank details, and a TLV (Tag 1–5) QR code. (`xml_generator.py`, `pdf_renderer.py`, `tlv_encoder.py`)
+- **ZATCA-compliant invoice engine** — UBL 2.1 XML generation, bilingual (Arabic/English) PDF rendering with company logo + bank details, and a TLV (Tag 1–5) QR code. Phase 1 TLV QR codes verified on the official ZATCA-1 app (offline). Phase 2 QR validated in FATOORA sandbox. (`xml_generator.py`, `pdf_renderer.py`, `tlv_encoder.py`)
 - **Bulk upload wizard** — 3-step flow (preview → audit → generate ZIP) with a SmartMap column auto-detector that matches messy Excel headers to schema fields with confidence scores. (`bulk.py`, `bulk-upload/page.tsx`)
 - **Inline audit grid with auto-fix + AI-fix** — every row is validated (dates, VAT format, quantities, math); a heuristic `/autofix` corrects common errors, and an LLM-based `/ai-fix` (OpenRouter — Gemini/OpenAI/DeepSeek) corrects complex ones with quota tracking. (`bulk.py`)
 - **ZATCA Phase 2 groundwork** — ECDSA (secp256k1) key generation, CSR creation with Microsoft template OIDs, a sandbox handshake endpoint, XAdES-BES XML signing, and a Fatoora Sandbox client for B2B clearance / B2C reporting with local simulation fallback. (`crypto_service.py`, `zatca_client.py`, `zatca.py`)
@@ -101,7 +101,7 @@ launch.bat → Streamlit engine (main.py) → Local SQLite/JSON database + PDF/X
 
 ---
 
-## Security & Architecture Notes
+## Security & Controls
 
 - **Multi-tenancy / RLS:** Supabase Row-Level Security policies isolate data per tenant (`auth.uid()`) across profiles, invoices, products, customers, bulk jobs, and subscriptions (migration `21`).
 - **Auth:** JWT validation (HS256, local-first) with fallback to the Supabase auth API; `get_current_admin` guards admin routes.
